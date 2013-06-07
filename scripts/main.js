@@ -11,7 +11,7 @@ function showSectionLink( $linkID ) {
 	
 	$lastLink = $linkID;
 	var idd = '#section' + $linkID;
-    $( idd ).slideDown( 'slow' );
+    $( idd ).slideDown( 100 );
 }
 
 function keepItHere( $linkID ) {
@@ -29,10 +29,9 @@ function clearSectionLink( $linkID ) {
 function clearalldropdowns() {
 	for( var ii = 1; ii <= 14 ; ii++ )
 	{
-			idd = '#section' + ii;
-			$(idd).hide();
+		idd = '#section' + ii;
+		$(idd).hide();
 	}
-
 }
 
 function freeze( $linkID ) {
@@ -75,4 +74,3 @@ function showNavigation( ) {
 		document.write( $closing );
 	}
 }
-
