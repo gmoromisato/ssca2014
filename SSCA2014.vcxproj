@@ -64,6 +64,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="index.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="ntest2.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="scripts\main.js" />
+    <None Include="sectionN.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="ssca.css" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

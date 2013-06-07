@@ -1,0 +1,104 @@
+.bodyStyle
+	{
+	background-color: #eefefe;
+	}
+.headerBox	/* at the top of the page - runs the whole length */
+	{
+	width: 96%;
+	height: 147px;
+	border: 2px solid #222222;
+	margin: 12px auto 12px auto;
+	background-color: #abcdef;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	}
+.logo	/* the SSCA logo */
+	{
+	float: left; 
+	margin: 0px 0 0 1px; 
+	width: 205px; 
+	height: 145px; 
+	background-image: url(images/ssca_logo.gif);
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	}
+	
+.headerText		/* SSCA 2014 or something nice */
+	{
+	float:left;
+	margin: 0 0 0 24px; 
+	font-size: 180%; 
+	color: #555555; 
+	height: 48px; 
+	font-family: 'bookman old style'; 
+	padding: 12px;
+	}
+	
+.linkboxstyle	/* container for the image boxes */
+	{
+	margin: 0 auto 0 auto; 
+	padding-left: 120px;
+	padding: 12px; 
+	width: 95%;
+	height: 400px;
+	text-align: center;
+/*
+	border: 2px solid green;
+	border-top-left-radius:  9px;
+	border-top-right-radius: 9px;
+	background-color: #c8c8c8; 
+*/
+	}
+	
+.imagebox	/* 2 or 3 rows of these things */
+	{
+	background-image: url(images/headside.jpg); /* 180 wide by 163 high */
+	background-repeat: no-repeat;
+	border: 0px solid red;
+	background-color: #fafafa; 
+	width: 180px; 
+	height: 165px;
+	float: left;
+	margin: 0 0px 0 0;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	}
+/*
+ * the top margin listed below should be equal to or one
+ * more than the border radius
+ */
+.sectionhead	/* this is the slider */
+	{
+	display: none; 
+	margin: 0px 0 0 0;
+	padding: 0;
+	width: 98%; 
+	height: 46px; 
+	background-color: #d8d8d8;
+	border-top-left-radius:  7px;
+	border-top-right-radius: 7px;
+	}
+.sectiontext	/* some text in the slider */
+	{
+	margin: 0 auto 0 auto; 
+	padding: 0 0 0 0; 
+	text-align: center;
+	}
+.linkstyle	/* fancy stuff for the link text */
+	{
+	font-weight: bold; 
+	font-size: 120%;
+	width: 100%;
+	}
+	
+	
+/*
+ * examples:
+ -webkit-box-shadow: 2px 5px 0 0 rgba(72,72,72,1); 
+ -moz-box-shadow: 2px 5px 0 0 rgba(72,72,72,1); 
+ box-shadow: 2px 5px 0 0 rgba(72,72,72,1);
+ 
+border-top-left-radius: 10px 5px;
+border-bottom-right-radius: 10% 5%;
+border-top-right-radius: 10px;
+*/
