@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.theBox
+	{
+	border: 1px solid red; 
+	background-color: #fafafa; 
+	width: 130px; 
+	height: 180px;
+	margin: 0;
+	padding: 0;
+	}
+</style>
+</head>
+
+<body>
+	<div class="theBox" onmouseover="showSectionLink( 1 );" onmouseout="hideSectionLink( 1 );">
+		<div id="section1" style="display: none; width: 88px; height: 32px; background-color: #d8d8d8;">
+			<p style="margin: 0 0 0 0; padding: 0 0 0 0;">Dude1</p>
+			<h2 style="font-weight: bold; font-size: 120%;">
+				<a href="#" onclick="hideSectionLink( 1 );">Section N</a></h2>
+			
+		</div>
+	</div>
+	
+	<div class="theBox" onmouseover="showSectionLink( 2 );" onmouseout="hideSectionLink( 2 );">
+		<div id="section2" style="display: none; width: 88px; height: 32px; background-color: #d8d8d8;">
+			<p style="margin: 0 0 0 0; padding: 0 0 0 0;">Dude2</p>
+			<h2 style="font-weight: bold; font-size: 120%;">
+				<a href="#" onclick="hideSectionLink( 2 );">Section N</a></h2>
+			
+		</div>
+	</div>
+<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<script>
+/*
+var timer;
+
+  if( $('.main-popup2').is(":visible")){
+    // create the timer and save its reference
+    timer = setTimeout(function() {
+        $('.main-popup2').fadeOut('fast');
+    }, 20000);
+}
+
+// when clicking somewhere on the page, stop the timer
+$(document).click(function() {
+    clearTimeout(timer);
+});
+*/
+
+
+function showSectionLink( $linkID ) {
+	var idd = '#section' + $linkID;
+	//$( idd ).fadeIn( 700 ).delay(5000).fadeOut(1500);
+	$( idd ).fadeIn( 300 );
+	
+    //$('#picOne').fadeIn(1500).delay(3500).fadeOut(1500);
+    //$('#picTwo').delay(5000).fadeIn(1500);
+}
+
+function hideSectionLink( $linkID ) {
+	var idd = '#section' + $linkID;
+	$( idd ).delay( 0 ).hide();
+	if ( $linkID == 1 ) {
+		var idd = '#section2';
+		$( idd ).delay( 0 ).hide();
+	}
+		
+}
+
+</script>
+</body>
+</html>

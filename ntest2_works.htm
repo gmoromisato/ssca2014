@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>ntest2</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+<style type="text/css">
+/*
+
+*/
+.bodyStyle
+	{
+	background-color: #eefefe;
+	}
+.headerBox
+	{
+	width: 96%;
+	height: 147px;
+	border: 2px solid #222222;
+	margin: 12px auto 12px auto;
+	background-color: #abcdef;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	}
+.logo
+	{
+	float: left; 
+	margin: 0px 0 0 12px; 
+	width: 205px; 
+	height: 145px; 
+	background-image: url(images/ssca_logo.gif);
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	}
+	
+.headerText
+	{
+	float:left;
+	margin: 0 0 0 24px; 
+	font-size: 34px; 
+	color: #555555; 
+	height: 48px; 
+	font-family: 'bookman old style'; 
+	padding: 12px;
+	}
+	
+.imagebox
+	{
+	background-image: url(images/headside.jpg); /* 180 wide by 163 high */
+	background-repeat: no-repeat;
+	border: 0px solid red;
+	background-color: #fafafa; 
+	width: 180px; 
+	height: 165px;
+	float: left;
+	margin: 0 0px 0 0;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	}
+/*
+ * the top margin listed below should be equal to or one
+ * more than the border radius
+ */
+.sectionhead
+	{
+	display: none; 
+	margin: 0px 0 0 0;
+	padding: 0;
+	width: 98%; 
+	height: 46px; 
+	background-color: #d8d8d8;
+	border-top-left-radius:  7px;
+	border-top-right-radius: 7px;
+	}
+.sectiontext
+	{
+	margin: 0 auto 0 auto; 
+	padding: 0 0 0 0; 
+	text-align: center;
+	}
+.linkstyle
+	{
+	font-weight: bold; 
+	font-size: 120%;
+	width: 100%;
+	}
+	
+.linkboxstyle
+	{
+	margin: 0 auto 0 auto; 
+	padding-left: 120px;
+	padding: 12px; 
+	width: 95%;
+	height: 400px;
+	text-align: center;
+/*
+	border: 2px solid green;
+	border-top-left-radius:  9px;
+	border-top-right-radius: 9px;
+	background-color: #c8c8c8; 
+*/
+	}
+/*
+ * examples:
+ -webkit-box-shadow: 2px 5px 0 0 rgba(72,72,72,1); 
+ -moz-box-shadow: 2px 5px 0 0 rgba(72,72,72,1); 
+ box-shadow: 2px 5px 0 0 rgba(72,72,72,1);
+ 
+border-top-left-radius: 10px 5px;
+border-bottom-right-radius: 10% 5%;
+border-top-right-radius: 10px;
+*/
+
+</style>
+
+<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" language="javascript">
+var $lastLink;
+
+function showSectionLink( $linkID ) {
+	//$data = "this linkID = " + $linkID + ' ... last linkID = ' + $lastLink;
+	//$("#linkid").text( $data ); 
+	//lastidd = '#section' + $lastLink;
+	//$( lastidd ).slideUp( 0, 0 );
+
+	if ( $linkID == $lastLink) {
+		var idd = '#section' + $linkID;
+		$( idd ).slideDown( 0 );
+		return;
+	}	
+	// now clear the unchecked links
+	clearalldropdowns();
+	
+	$lastLink = $linkID;
+	var idd = '#section' + $linkID;
+    $( idd ).slideDown( 'slow' );
+}
+
+function keepItHere( $linkID ) {
+	var idd = '#section' + $linkID;
+	$( idd ).show();
+}
+
+function hideSectionLink( $linkID ) {
+	if ( $linkID == $lastLink)
+		return;
+		
+	$("#youclicked").show();
+	var $boxHeader = '<div style="margin: 0 auto 0 auto; font-color: #a6a6a6; font-size: 150%; text-align: center;">This is Section ' + $linkID + '</div>';
+	$('#youclicked').html( $boxHeader );
+}
+
+
+function linkToolTip( $linkID ) {
+return;
+	var idd = '#tipbox' + $linkID;
+
+	$tipOffset = $( idd ).offset();
+	var $imageOffsets = "top = " + $tipOffset.top + " ... left = " + $tipOffset.left;
+	$( idd ).html( $imageOffsets );
+}
+
+function clearSectionLink( $linkID ) {
+//alert( 'linkID = ' + $linkID + ' ... last link = ' + $lastLink);
+	var idd = '#section' + $lastLink;
+	$( idd ).hide( 0, 0 );
+	$( idd ).slideUp( 0, 0);
+}
+
+function clearalldropdowns() {
+	for( var ii = 1; ii <= 14 ; ii++ )
+	{
+			idd = '#section' + ii;
+			$(idd).hide();
+	}
+
+}
+function freeze( $linkID ) {
+	idd = '#section' + $linkID;
+	$(idd).show();
+}
+
+</script>
+
+
+<script type="text/javascript">
+function showNavigation( ) {
+
+	// define the link text for each box on the screen
+	// this text appears in the dropdown on mouseover
+	var $sections = new Array( 
+		"bogus",      "Section 1",  "Section 2", "Section 3", "Section 4",  "Section 5", 
+		"Section 6",  "Section 7",  "Section 8", "Section 9", "Section 10", "Section 11", 
+		"Section 12", "Section 13", "Section 14" );
+		
+	// define all of the file names for each page
+	var $sectionLinks = new Array( 
+		"bogus",        "sectionN.htm", "sectionN.htm", "sectionN.htm", "sectionN.htm", "sectionN.htm",
+		"sectionN.htm", "sectionN.htm", "sectionN.htm", "sectionN.htm", "sectionN.htm", "sectionN.htm", 
+		"sectionN.htm", "sectionN.htm", "sectionN.htm" );
+
+	// NOTE: the items in each of the above arrays must be identical
+	
+	$boxesPerRowbreak = 8;	// start a new row when count reaches this value
+	$closing = "</p></div></div> \n\n";
+	
+	$sectioncount = $sections.length;
+	
+	for ( ss = 1; ss < $sectioncount; ss++ ) {
+		if ( ss == $boxesPerRowbreak  ) {
+			document.write( '<div style="clear:right; width: 10px; height: 160px;"></div>' );
+		}
+		
+		$thisSection = $sections[ ss ];
+		document.write( '<div class="imagebox" onmouseout="clearSectionLink(' + ss + ');" onmouseover="showSectionLink( ' + ss + ');">' );
+		// document.write( '<div id="tipbox' + ss + '" style="display: none; border: 2px solid green;"></div>' );
+		document.write( '<div id="section' + ss + '" class="sectionhead" onmouseover="keepItHere(' + ss + ');">');
+		document.write( '<p class="sectiontext">Some text here ?<br /><span class="linkstyle">' );
+		document.write( '<a href="' + $sectionLinks[ss] + '" onmouseover="freeze(' + ss + ');">' + $thisSection + '</a></span>');
+		document.write( $closing );
+	}
+}
+
+</script>
+
+</head>
+
+<body class="bodyStyle">
+<div id="headerBox" class="headerBox">
+	<div class="logo"></div>
+	<div class="headerText">
+		SSCA 2014 National Specialty
+	</div>
+	
+</div>
+<div id="linkbox" class="linkboxstyle">
+	<div style="margin: 0 auto 0 auto; padding: 12px; width: 1340px;">
+		<script>showNavigation();</script>
+		<br clear="all" />
+	</div>  
+</div>  
+	<p id="linkid"></p>
+
+<div id="youclicked" style="display: none; width: 98%; border: 2px solid blue; height: 300px; margin: 22px 0 0 0;">
+</div>
+
+</body>
+</html>

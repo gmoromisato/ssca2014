@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>ntest2</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" language="javascript">
+function getMilliseconds() {
+var millis = new Date(); 
+	$milliseconds =  millis.getMilliseconds();
+	document.write( $milliseconds );
+}
+
+</script>
+
+<style type="text/css">
+/*
+ * the top margin listed below should be equal to or one
+ * more than the border radius
+border-top-left-radius:  7px;
+border-top-right-radius: 7px;
+*
+ * examples:
+ -webkit-box-shadow: 2px 5px 0 0 rgba(72,72,72,1); 
+ -moz-box-shadow: 2px 5px 0 0 rgba(72,72,72,1); 
+ box-shadow: 2px 5px 0 0 rgba(72,72,72,1);
+ 
+border-top-left-radius: 10px 5px;
+border-bottom-right-radius: 10% 5%;
+border-top-right-radius: 10px;
+*/
+</style>
+
+</head>
+
+<body>
+
+<div id="sectionN" style="display: block; width: 98%; border: 2px solid blue; height: 600px; margin: 22px 0 0 0;">
+<script type="text/javascript">getMilliseconds();</script>
+<br clear="all" />
+<a href="ntest2.htm" style="font-family: comic; font-size: 120%;"> Return to the main page. </a><br clear="all" />
+<br clear="all" />
+<br clear="all" />
+Each link will have its own page and all with the same style
+<br clear="all" />
+
+
+</div>
+
+</body>
+</html>
